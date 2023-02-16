@@ -14,7 +14,7 @@ function renderBanner() {
     var e = localStorage.getItem("last_login");
   }
   localStorage.setItem("last_login", new Date()),
-    fetch("https://api.lanyard.rest/v1/users/902131196912345118")
+    fetch("https://api.lanyard.rest/v1/users/1017034605708185651")
       .then((e) => e.json())
       .then((e) => {
         e.data.active_on_discord_desktop && (status = "online");
@@ -83,7 +83,7 @@ exinput.focus(),
       var M = e.target.value;
       switch (M.trim().toLowerCase()) {
         case "listen":
-          fetch("https://api.lanyard.rest/v1/users/902131196912345118")
+          fetch("https://api.lanyard.rest/v1/users/1017034605708185651")
             .then((e) => e.json())
             .then((e) => {
               console.log(e.data.spotify),
