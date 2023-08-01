@@ -59,18 +59,22 @@ function createCurrentInput() {
   var e = document.createElement("div");
   e.classList.add("currentinput"), terminal.append(e), exinput.focus();
 }
-function renderOutput(e, M = 10, t = e.length * M + 100) {
+function renderOutput(e, M = 20, t = e.length * M + 100) {
   var o,
     n = document.createElement("pre");
-  n.classList.add("line"), terminal.append(n);
+  n.classList.add("line");
+  n.classList.add("active");
+  terminal.append(n);
   for (let s = 0; s < e.length; s++)
     o = setTimeout(() => {
       n.innerHTML += e[s];
-      total.scrollTo(0, total.scrollHeight + 100);
+      total.scrollTo(0, total.scrollHeight);
     }, s * M);
+
   document.activeElement.blur(),
     setTimeout(() => {
       createCurrentInput();
+      n.classList.remove("active");
     }, t);
 }
 exinput.focus(),
