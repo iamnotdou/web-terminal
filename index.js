@@ -5,7 +5,8 @@ const $ = (e) => document.querySelector(e);
 var terminal = $("#terminal"),
   currentinput = document.getElementsByClassName("currentinput"),
   exinput = $("#exinput"),
-  status = "offline";
+  status = "offline",
+  total = $("#total");
 function renderBanner() {
   if (localStorage.getItem("last_login"))
     var e = localStorage.getItem("last_login");
@@ -64,7 +65,8 @@ function renderOutput(e, M = 10, t = e.length * M + 100) {
   n.classList.add("line"), terminal.append(n);
   for (let s = 0; s < e.length; s++)
     o = setTimeout(() => {
-      (n.innerHTML += e[s]), window.scrollTo(0, document.body.scrollHeight);
+      n.innerHTML += e[s];
+      total.scrollTo(0, total.scrollHeight + 100);
     }, s * M);
   document.activeElement.blur(),
     setTimeout(() => {
